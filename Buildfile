@@ -1,6 +1,6 @@
 # ===========================================================================
-# Project:   Twttrtimeline
-# Copyright: ©2011 My Company, Inc.
+# Project:   tmln
+# Copyright: ©2011 Nate Agrin
 # ===========================================================================
 
 # Add initial buildfile information here

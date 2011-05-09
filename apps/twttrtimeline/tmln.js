@@ -1,22 +1,22 @@
 // ==========================================================================
-// Project:   Twttrtimeline
+// Project:   Tmln
 // Copyright: ©2011 My Company, Inc.
 // ==========================================================================
-/*globals Twttrtimeline */
+/*globals Tmln */
 
 // endpoint
 // https://api.twitter.com/1/statuses/public_timeline.json?include_entities=true
 
 var PUBLIC_ENDPOINT = "https://api.twitter.com/1/statuses/public_timeline.json?include_entities=true";
 
-Twttrtimeline = SC.Application.create();
+Tmln = SC.Application.create();
 
-Twttrtimeline.Tweet = SC.Object.extend({
+Tmln.Tweet = SC.Object.extend({
   text: null,
   user: null
 });
 
-Twttrtimeline.tweetListController = SC.ArrayController.create({
+Tmln.tweetListController = SC.ArrayController.create({
   content: [],
   
   getTweets: function() {
@@ -29,7 +29,7 @@ Twttrtimeline.tweetListController = SC.ArrayController.create({
   
   _gotTweets: function(data) {
     var runner = $.proxy(function(idx, tweet) {
-      this.pushObject(Twttrtimeline.Tweet.create({
+      this.pushObject(Tmln.Tweet.create({
         text: tweet.text,
         user: tweet.user
       }));
@@ -39,21 +39,21 @@ Twttrtimeline.tweetListController = SC.ArrayController.create({
   }
 });
 
-Twttrtimeline.TweetListView = SC.TemplateCollectionView.extend({
-  contentBinding: 'Twttrtimeline.tweetListController'
+Tmln.TweetListView = SC.TemplateCollectionView.extend({
+  contentBinding: 'Tmln.tweetListController'
 });
 
 SC.ready(function() {
-  Twttrtimeline.mainPane = SC.TemplatePane.append({
-    layerId: 'twttrtimeline',
-    templateName: 'twttrtimeline'
+  Tmln.mainPane = SC.TemplatePane.append({
+    layerId: 'tmln',
+    templateName: 'tmln'
   });
   
-  Twttrtimeline.tweetListController.getTweets();
+  Tmln.tweetListController.getTweets();
   setInterval(
     $.proxy(
-      Twttrtimeline.tweetListController.getTweets,
-      Twttrtimeline.tweetListController
+      Tmln.tweetListController.getTweets,
+      Tmln.tweetListController
     )
   , 60 * 1000);
 });

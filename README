@@ -1,7 +1,14 @@
 =============================================================================
-Project:   Twttrtimeline
+Project:   tmln
 Copyright: ©2011 My Company, Inc.
 =============================================================================
 
-TODO: Describe Your Project
+tmln is short for timeline.
 
+This is just a Hello World I whipped up in about an hour after reading
+some of the new TemplateView Sproutcore docs.
+
+In its current form it just gets the most recent 20 tweets from the public
+timeline and sticks them into li's.
+
+Nate can code, and so can you!
